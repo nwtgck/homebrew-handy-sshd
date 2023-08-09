@@ -5,12 +5,20 @@
 class HandySshd < Formula
   desc "Portable SSH server"
   homepage "https://github.com/nwtgck/handy-sshd"
-  version "0.2.0"
+  version "0.2.1"
 
   on_macos do
     if Hardware::CPU.intel?
-      url "https://github.com/nwtgck/handy-sshd/releases/download/v0.2.0/handy-sshd-0.2.0-darwin-amd64.tar.gz"
-      sha256 "3b290f67372edeaec43615bec3b301faaa06b3c2b595fd4e5921c12da939428f"
+      url "https://github.com/nwtgck/handy-sshd/releases/download/v0.2.1/handy-sshd-0.2.1-darwin-amd64.tar.gz"
+      sha256 "4ab19618563f791a6ff7f4551f9fd828b9e8e70cbbe7b942e28c76bf7a06b27f"
+
+      def install
+        bin.install "handy-sshd"
+      end
+    end
+    if Hardware::CPU.arm?
+      url "https://github.com/nwtgck/handy-sshd/releases/download/v0.2.1/handy-sshd-0.2.1-darwin-arm64.tar.gz"
+      sha256 "70a2844e7c1312219df68eacb665da7fff9195904040bfaf3c5374812d3a804a"
 
       def install
         bin.install "handy-sshd"
@@ -20,24 +28,24 @@ class HandySshd < Formula
 
   on_linux do
     if Hardware::CPU.intel?
-      url "https://github.com/nwtgck/handy-sshd/releases/download/v0.2.0/handy-sshd-0.2.0-linux-amd64.tar.gz"
-      sha256 "59b63cb20a492b01f0ebd4fda2f2e1f6ef9d633df6471c70ec0780e0a53efefb"
-
-      def install
-        bin.install "handy-sshd"
-      end
-    end
-    if Hardware::CPU.arm? && !Hardware::CPU.is_64_bit?
-      url "https://github.com/nwtgck/handy-sshd/releases/download/v0.2.0/handy-sshd-0.2.0-linux-armv6.tar.gz"
-      sha256 "8dccdd85074c815b2e0708b79fafabd1108a396a009bcc1c04098bd52d59d476"
+      url "https://github.com/nwtgck/handy-sshd/releases/download/v0.2.1/handy-sshd-0.2.1-linux-amd64.tar.gz"
+      sha256 "05a65be4ead8ad238b3e26117010ff742b4ea94474d0c633fc1a51578e59efaf"
 
       def install
         bin.install "handy-sshd"
       end
     end
     if Hardware::CPU.arm? && Hardware::CPU.is_64_bit?
-      url "https://github.com/nwtgck/handy-sshd/releases/download/v0.2.0/handy-sshd-0.2.0-linux-arm64.tar.gz"
-      sha256 "bda7dfa1da8fcbe643cee857f8a3030cdbd686d09bdf8bba248322f086a5832a"
+      url "https://github.com/nwtgck/handy-sshd/releases/download/v0.2.1/handy-sshd-0.2.1-linux-arm64.tar.gz"
+      sha256 "86ea8ca4699cbae26a77c54441333a49edbebab4dc53c997a7995249ceaf2cc4"
+
+      def install
+        bin.install "handy-sshd"
+      end
+    end
+    if Hardware::CPU.arm? && !Hardware::CPU.is_64_bit?
+      url "https://github.com/nwtgck/handy-sshd/releases/download/v0.2.1/handy-sshd-0.2.1-linux-armv6.tar.gz"
+      sha256 "f32aca53c077345191151c17de14b44ddbead49900ab3d4304ee139d20b9b604"
 
       def install
         bin.install "handy-sshd"
